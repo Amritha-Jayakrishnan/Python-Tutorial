@@ -1,12 +1,21 @@
-# Palindrome Checker
-# Checks if a string or number reads the same forwards and backwards
+# Symmetric and Palindrome Program
 
-def is_palindrome(value):
-    s = str(value)
-    return s == s[::-1]
+string = input("Enter a string: ")
 
-user_input = input("Enter a word or number: ")
-if is_palindrome(user_input):
-    print(f'"{user_input}" is a Palindrome.')
+length = len(string)
+
+# Check Symmetric
+if length % 2 == 0:
+    mid = length // 2
+    if string[:mid] == string[mid:]:
+        print("The string is Symmetric")
+    else:
+        print("The string is not Symmetric")
 else:
-    print(f'"{user_input}" is NOT a Palindrome.')
+    print("The string is not Symmetric")
+
+# Check Palindrome
+if string == string[::-1]:
+    print("The string is a Palindrome")
+else:
+    print("The string is not a Palindrome")
