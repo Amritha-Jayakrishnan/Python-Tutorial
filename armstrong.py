@@ -1,14 +1,16 @@
-# Armstrong Number
-# A number is Armstrong if sum of its digits raised to the power of digit count equals itself
-# Example: 153 = 1^3 + 5^3 + 3^3
+# Armstrong Number Program
 
-def is_armstrong(n):
-    digits = str(n)
-    power = len(digits)
-    return n == sum(int(d) ** power for d in digits)
+num = int(input("Enter a number: "))
+temp = num
+sum = 0
+digits = len(str(num))
 
-n = int(input("Enter a number: "))
-if is_armstrong(n):
-    print(f"{n} is an Armstrong number.")
+while temp > 0:
+    digit = temp % 10
+    sum += digit ** digits
+    temp //= 10
+
+if sum == num:
+    print(num, "is an Armstrong number")
 else:
-    print(f"{n} is NOT an Armstrong number.")
+    print(num, "is not an Armstrong number")
