@@ -1,16 +1,13 @@
-# Prime Number Checker
-# Checks whether a given number is prime
+# Prime Number Program
 
-def is_prime(n):
-    if n < 2:
-        return False
-    for i in range(2, int(n ** 0.5) + 1):
-        if n % i == 0:
-            return False
-    return True
+num = int(input("Enter a number: "))
 
-n = int(input("Enter a number: "))
-if is_prime(n):
-    print(f"{n} is a Prime number.")
+if num <= 1:
+    print(num, "is not a prime number")
 else:
-    print(f"{n} is NOT a Prime number.")
+    for i in range(2, int(num ** 0.5) + 1):
+        if num % i == 0:
+            print(num, "is not a prime number")
+            break
+    else:
+        print(num, "is a prime number")
