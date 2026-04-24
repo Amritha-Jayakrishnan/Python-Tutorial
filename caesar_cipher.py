@@ -1,22 +1,15 @@
-# Caesar Cipher
-# Encrypts and decrypts text by shifting letters by a given key
-
-def caesar_cipher(text, shift, mode='encrypt'):
-    if mode == 'decrypt':
-        shift = -shift
-    result = ""
-    for char in text:
-        if char.isalpha():
-            base = ord('A') if char.isupper() else ord('a')
-            result += chr((ord(char) - base + shift) % 26 + base)
-        else:
-            result += char
-    return result
+# Caesar Cipher Program
 
 text = input("Enter text: ")
-shift = int(input("Enter shift key (e.g. 3): "))
-mode = input("Encrypt or Decrypt? (e/d): ").strip().lower()
-mode = 'decrypt' if mode == 'd' else 'encrypt'
+shift = int(input("Enter shift value: "))
 
-output = caesar_cipher(text, shift, mode)
-print(f"Result: {output}")
+result = ""
+
+for char in text:
+    if char.isalpha():
+        start = ord('A') if char.isupper() else ord('a')
+        result += chr((ord(char) - start + shift) % 26 + start)
+    else:
+        result += char
+
+print("Encrypted Text:", result)
